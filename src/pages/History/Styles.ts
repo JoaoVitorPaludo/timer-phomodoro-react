@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const HistoryContainer = styled.main`
   flex: 1;
   padding: 3.5rem;
+
   display: flex;
   flex-direction: column;
 
@@ -31,21 +32,21 @@ export const HistoryList = styled.div`
       line-height: 1.6;
 
       &:first-child {
-        border-top-left-radius: 0.5rem;
+        border-top-left-radius: 8px;
         padding-left: 1.5rem;
       }
 
       &:last-child {
-        border-top-right-radius: 0.5rem;
+        border-top-right-radius: 8px;
         padding-right: 1.5rem;
       }
     }
 
     td {
       background-color: ${(props) => props.theme["gray-700"]};
-      border-top: 1px solid ${(props) => props.theme["gray-800"]};
+      border-top: 4px solid ${(props) => props.theme["gray-800"]};
       padding: 1rem;
-      font-size: 0%.875rem;
+      font-size: 0.875rem;
       line-height: 1.6;
 
       &:first-child {
@@ -65,9 +66,11 @@ const STATUS_COLORS = {
   green: "green-500",
   red: "red-500",
 } as const;
+
 interface StatusProps {
   statusColor: keyof typeof STATUS_COLORS;
 }
+
 export const Status = styled.span<StatusProps>`
   display: flex;
   align-items: center;
@@ -78,7 +81,6 @@ export const Status = styled.span<StatusProps>`
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 9999px;
-    background-color: ${(props) =>
-      props.theme[STATUS_COLORS[props.statusColor]]};
+    background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
   }
 `;
